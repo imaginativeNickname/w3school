@@ -1,0 +1,13 @@
+#1 task
+class StringProcessor:
+    def __init__(self):
+        self.txt=""
+    def getString(self):
+        self.txt=input()
+    def printString(self):
+        print(self.txt.upper())
+
+processor = StringProcessor()
+processor.getString()
+processor.printString()
+
