@@ -82,3 +82,42 @@ p2.show()
 
 print("New Distance:", p1.dist(p2))
 
+class Account:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposit of ${amount} successful. New balance: ${self.balance}")
+        else:
+            print("Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Withdrawal failed. Insufficient funds.")
+        elif amount > 0:
+            self.balance -= amount
+            print(f"Withdrawal of ${amount} successful. New balance: ${self.balance}")
+        else:
+            print("Withdrawal amount must be positive.")
+
+if __name__ == "__main__":
+    owner = input("Enter account owner's name: ")
+    initial_balance = float(input("Enter initial balance: "))
+    acc = Account(owner, initial_balance)
+    
+    while True:
+        action = input("Choose an action (deposit, withdraw, exit): ").strip().lower()
+        if action == "deposit":
+            amount = float(input("Enter deposit amount: "))
+            acc.deposit(amount)
+        elif action == "withdraw":
+            amount = float(input("Enter withdrawal amount: "))
+            acc.withdraw(amount)
+        elif action == "exit":
+            print("Exiting. Final balance:", acc.balance)
+            break
+        else:
+            print("Invalid action. Please enter 'deposit', 'withdraw', or 'exit'.")
