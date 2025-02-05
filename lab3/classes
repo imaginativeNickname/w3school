@@ -11,3 +11,4 @@ processor = StringProcessor()
 processor.getString()
 processor.printString()
 
+#2 task
