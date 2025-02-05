@@ -1,3 +1,4 @@
+#1 TASK
 class StringProcessor:
     def __init__(self):
         self.txt=""
@@ -10,6 +11,30 @@ processor = StringProcessor()
 processor.getString()
 processor.printString()
 
+#2 TASK
+class Shape:
+    def __init__(self):
+        pass
+    
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self, length=None):
+        super().__init__()
+        if length is None:
+            self.length = float(input("Enter the length: "))
+        else:
+            self.length = length
+    
+    def area(self):
+        return self.length ** 2
+
+square = Square()
+
+print("Area of Square:", square.area())
+
+#3
 from abc import ABC, abstractmethod
 
 class Shape(ABC):
@@ -17,35 +42,19 @@ class Shape(ABC):
     def area(self):
         pass
 
-class Square(Shape):
-    def __init__(self, length=None):
-        if length is None:
-            self.length = float(input("Enter the length of the square: "))
-        else:
-            self.length = length
-    
-    def area(self):
-        return self.length ** 2
-
 class Rectangle(Shape):
     def __init__(self, length=None, width=None):
-        if length is None or width is None:
-            self.length = float(input("Enter the length of the rectangle: "))
-            self.width = float(input("Enter the width of the rectangle: "))
-        else:
-            self.length = length
-            self.width = width
+        self.length = float(input("Enter the length: "))
+        self.width = float(input("Enter the length: "))
     
     def area(self):
         return self.length * self.width
 
-square1 = Square()
 rectangle1 = Rectangle()
 
-print("Area of Square:", square1.area())
-print("Area of Rectangle:", rectangle1.area())
+print("Area of Rectangle (interactive):", rectangle1.area())
 
-
+#4 TASK
 import math
 
 class Point:
@@ -82,6 +91,7 @@ p2.show()
 
 print("New Distance:", p1.dist(p2))
 
+#5 TASK
 class Account:
     def __init__(self, owner, balance=0):
         self.owner = owner
@@ -121,3 +131,12 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid action. Please enter 'deposit', 'withdraw', or 'exit'.")
+#6 TASK
+is_prime = lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n ** 0.5) + 1))
+
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+
+prime_numbers = list(filter(lambda x: is_prime(x), numbers))
+
+print("Prime numbers:", prime_numbers)
+
